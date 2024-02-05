@@ -9,13 +9,20 @@ function Statistics({ title, stats }) {
                     {title}
                 </h1>
             </div>
-            <ul>
-                {stats.map( stats => (
-                    <li key={stats.id} className='item'>
-                        <span className='label'>{stats.label}</span>
-                        <span className='percentage'> {stats.percentage}%</span>
-                    </li>
-                ))}
+            <ul className='stats-ul'>
+                {stats.map((stat) => {
+                    let style = { backgroundColor: '#ffcccc' }; // Domyślnie czerwony
+                    if (stat.percentage > 5) style.backgroundColor ='#9fc5e8'
+                    if (stat.percentage > 20) style.backgroundColor = '#ffff99'; // Żółty
+                    if (stat.percentage > 50) style.backgroundColor = '#ccffcc'; // Zielony
+                    
+                    return (
+                        <li key={stat.id} className='item' style={style}>
+                            <span className='label'>{stat.label}</span>
+                            <span className='percentage'>{stat.percentage}%</span>
+                        </li>
+                    );
+                })}
             </ul>
         </div>
     );
