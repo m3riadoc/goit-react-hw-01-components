@@ -11,10 +11,10 @@ function Statistics({ title, stats }) {
             </div>
             <ul className='stats-ul'>
                 {stats.map((stat) => {
-                    let style = { backgroundColor: '#ffcccc' }; // Domyślnie czerwony
+                    let style = { backgroundColor: '#ffcccc' }; 
                     if (stat.percentage > 5) style.backgroundColor ='#9fc5e8'
-                    if (stat.percentage > 20) style.backgroundColor = '#ffff99'; // Żółty
-                    if (stat.percentage > 50) style.backgroundColor = '#ccffcc'; // Zielony
+                    if (stat.percentage > 20) style.backgroundColor = '#ffff99'; 
+                    if (stat.percentage > 50) style.backgroundColor = '#ccffcc';
                     
                     return (
                         <li key={stat.id} className='item' style={style}>
